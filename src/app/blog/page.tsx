@@ -36,10 +36,10 @@ function EditorialFallback({ compact = false }: { compact?: boolean }) {
     <div
       className={`relative overflow-hidden ${
         compact ? 'h-52' : 'h-full min-h-[320px]'
-      } bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.16),transparent_32%),linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.02))]`}
+      } bg-[radial-gradient(circle_at_20%_20%,color-mix(in_srgb,var(--neutral-50)_16%,transparent),transparent_32%),linear-gradient(135deg,color-mix(in_srgb,var(--neutral-50)_9%,transparent),color-mix(in_srgb,var(--neutral-50)_2%,transparent))]`}
       aria-hidden="true"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.08),transparent)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent,color-mix(in_srgb,var(--neutral-50)_8%,transparent),transparent)]" />
       <div className="absolute -left-16 top-10 h-48 w-48 rounded-full border border-white/10" />
       <div className="absolute bottom-8 right-8 h-24 w-24 rounded-full border border-white/10" />
     </div>

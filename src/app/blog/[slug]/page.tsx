@@ -122,7 +122,7 @@ export default async function ArticlePage({
             </div>
           ) : (
             <div className="grid gap-px rounded-[2rem] border border-white/10 bg-white/10 p-px md:grid-cols-[1.15fr_0.85fr]">
-              <div className="min-h-[260px] rounded-[1.85rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] px-8 py-8 flex flex-col justify-between">
+              <div className="min-h-[260px] rounded-[1.85rem] bg-[linear-gradient(180deg,color-mix(in_srgb,var(--neutral-50)_8%,transparent),color-mix(in_srgb,var(--neutral-50)_3%,transparent))] px-8 py-8 flex flex-col justify-between">
                 <span className="inline-flex w-fit rounded-full border border-white/10 bg-black/25 px-3 py-1 text-[0.68rem] font-medium text-white/45">
                   Editorial visual
                 </span>
@@ -130,7 +130,7 @@ export default async function ArticlePage({
                   Add a hero image, abstract texture, illustration, or brand visual here.
                 </p>
               </div>
-              <div className="min-h-[260px] rounded-[1.85rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.018))] px-8 py-8 flex flex-col justify-between">
+              <div className="min-h-[260px] rounded-[1.85rem] bg-[linear-gradient(180deg,color-mix(in_srgb,var(--neutral-50)_5%,transparent),color-mix(in_srgb,var(--neutral-50)_1.8%,transparent))] px-8 py-8 flex flex-col justify-between">
                 <span className="inline-flex w-fit rounded-full border border-white/10 bg-black/25 px-3 py-1 text-[0.68rem] font-medium text-white/45">
                   Starter article
                 </span>

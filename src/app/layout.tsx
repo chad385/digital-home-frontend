@@ -1,17 +1,7 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import NavBar from '@/components/layout/NavBar';
+import { getTokens, buildRootCssVariables, googleFontsHref } from '@/lib/theme/tokens';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   title: 'Digital Home Starter',
@@ -24,11 +14,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const tokens = getTokens();
+
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="stylesheet" href={googleFontsHref(tokens)} />
+        <style
+          id="theme-tokens"
+          // Renders design-system/tokens.json as live CSS variables — the
+          // single place a token value becomes what the browser paints.
+          dangerouslySetInnerHTML={{ __html: `:root{${buildRootCssVariables(tokens)}}` }}
+        />
+      </head>
+      <body className="antialiased">
         <NavBar />
         {children}
       </body>
