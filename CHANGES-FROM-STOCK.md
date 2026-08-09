@@ -96,3 +96,10 @@ were applied — the site still renders on a stock, generic theme (Inter font,
 black/white neutral palette, blue accent). Only the *mechanism* by which that
 theme is expressed changed, per the standing prompt: mechanism belongs in
 the template, brand values belong on an instance.
+
+## Base upgrade (generic mechanism)
+- **Text/border CSS variables** (`src/lib/theme/tokens.ts`) —
+  `buildRootCssVariables()` now also emits `--text-primary/muted/faint/accent`
+  and `--border-hairline/accent-soft` when a `tokens.json` defines `colors.text`
+  / `colors.border`, with neutral fallbacks otherwise (guarded, so the stock
+  tokens still build). Lets an instance drive text + hairline colors from tokens.

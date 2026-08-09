@@ -42,6 +42,10 @@ export function googleFontsHref(t: Tokens = tokens): string {
 export function buildRootCssVariables(t: Tokens = tokens): string {
   const c = t.colors;
   const type = t.typography;
+  // colors.text / colors.border exist in this instance's tokens (the brand
+  // reskin). Guard so the base template (which lacks them) still builds.
+  const text = (c as { text?: Record<string, string> }).text;
+  const border = (c as { border?: Record<string, string> }).border;
   return `
 --brand-primary: ${c.brand.primary};
 --brand-secondary: ${c.brand.secondary};
@@ -70,8 +74,15 @@ export function buildRootCssVariables(t: Tokens = tokens): string {
 --surface-elevated: ${c.surface.elevated};
 --surface-overlay: ${c.surface.overlay};
 
+--text-primary: ${text?.primary ?? c.neutral['50']};
+--text-muted: ${text?.muted ?? c.neutral['300']};
+--text-faint: ${text?.faint ?? c.neutral['700']};
+--text-accent: ${text?.accent ?? c.brand.accent};
+--border-hairline: ${border?.hairline ?? 'rgba(255,255,255,0.1)'};
+--border-accent-soft: ${border?.accentSoft ?? c.brand.accent};
+
 --background: var(--surface-page);
---foreground: var(--neutral-100);
+--foreground: var(--text-primary);
 
 --font-sans: ${type.fontFamily.body};
 --font-heading: ${type.fontFamily.heading};
